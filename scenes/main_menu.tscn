@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://clapm1qho8xtu"]
+
+[ext_resource type="Script" uid="uid://x2b8moulrfks" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://bkroctl6khv0x" path="res://assets/Metal Lord.otf" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbmy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flqon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcqid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ajci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7b55j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pajh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7ex8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8gd2"]
+
+[node name="MainMenu" type="Control" unique_id=960255964]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=225465921]
+z_index = -100
+texture_filter = 1
+position = Vector2(576, 324.00003)
+scale = Vector2(0.59999996, 0.6000001)
+texture = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1931811656]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.655
+offset_top = 19.929993
+offset_right = 85.34241
+offset_bottom = 219.93005
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1426213176]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6784314, 0.15686275, 0.19607843, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wu84c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ln24")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1372570271]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6784314, 0.15686275, 0.19607843, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tbmy8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jk1qb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5dd4i")
+text = "settings"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=309300603]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6784314, 0.15686275, 0.19607843, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flqon")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rcqid")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ajci")
+text = "about"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=851560455]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6784314, 0.15686275, 0.19607843, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7b55j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5pajh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7ex8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a8gd2")
+text = "exit"
+
+[node name="Label" type="Label" parent="." unique_id=293493033]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -184.0
+offset_right = 131.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.77254903, 0.17254902, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("2_ekxnf")
+theme_override_font_sizes/font_size = 128
+text = "last wire"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_exit_pressed"]

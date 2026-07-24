@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bpwdlc5sq0goi"]
+
+[ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="1_hx3vx"]
+[ext_resource type="FontFile" uid="uid://bkroctl6khv0x" path="res://assets/Metal Lord.otf" id="2_j4mam"]
+
+[node name="About" type="Control" unique_id=388163734]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1975264840]
+texture_filter = 1
+position = Vector2(576, 324.00003)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_hx3vx")
+
+[node name="Label" type="Label" parent="." unique_id=1570629796]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -224.0
+offset_right = 114.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_j4mam")
+theme_override_font_sizes/font_size = 64
+text = "about"
