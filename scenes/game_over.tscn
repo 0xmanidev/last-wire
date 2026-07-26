@@ -1,3 +1,82 @@
 [gd_scene format=3 uid="uid://dfc8d6mm8lrl0"]
 
+[ext_resource type="Script" uid="uid://4mdlvjo5gkdw" path="res://scenes/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://bkroctl6khv0x" path="res://assets/Metal Lord.otf" id="2_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://bby61ryhhc315" path="res://assets/Sprite-0003.png" id="4_racf3"]
+[ext_resource type="Texture2D" uid="uid://w2wvxis88ko6" path="res://assets/Sprite-0023.png" id="5_7m3ot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbwuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_racf3"]
+
 [node name="Game over" type="Node2D" unique_id=366176615]
+script = ExtResource("1_tbwuq")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1919361353]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_xeevv")
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1974051196]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 172.0
+offset_top = 112.0
+offset_right = 1016.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 48
+text = "Game over
+the world ended the wire destroyed "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=403368181]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 459.0
+offset_top = 277.0
+offset_right = 729.0
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="RetryButton" type="Button" parent="VBoxContainer" unique_id=1066933416]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tbwuq")
+text = "retry"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=561771028]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_racf3")
+text = "Main Menu"
+
+[node name="Sprite0003" type="Sprite2D" parent="." unique_id=105835217]
+visible = false
+position = Vector2(598, 488)
+texture = ExtResource("4_racf3")
+
+[node name="Sprite0023" type="Sprite2D" parent="." unique_id=1087801605]
+visible = false
+position = Vector2(570, 477)
+texture = ExtResource("5_7m3ot")
+
+[connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

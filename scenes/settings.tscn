@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bmg153twvpgxe"]
+
+[ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://dgf673kfrg3wj" path="res://scenes/settings.gd" id="1_6wm04"]
+[ext_resource type="Texture2D" uid="uid://qodl0nup8lbi" path="res://assets/new_atlas_texture.tres" id="3_f4mfi"]
+
+[node name="Control" type="Control" unique_id=1764839745]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wm04")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1072844322]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.5999999)
+texture = ExtResource("1_5p8wc")
+
+[node name="Button" type="Button" parent="." unique_id=446494816]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1022.0001
+offset_top = 30.0
+offset_right = 1040.0001
+offset_bottom = 48.0
+scale = Vector2(5, 5)
+icon = ExtResource("3_f4mfi")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

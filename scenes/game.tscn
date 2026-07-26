@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bb0cpdu0rrs4" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="FontFile" uid="uid://bkroctl6khv0x" path="res://assets/Metal Lord.otf" id="2_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://cjir70kojg7y1" path="res://assets/ball.png" id="4_iywne"]
 [ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://c2w0inotejpmi" path="res://scenes/ball.gd" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bu4bap5jwl74g" path="res://assets/Sprite-0001.png" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://vybcpfjvnp26" path="res://assets/New Project.png" id="5_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://cl8h73pswwun2" path="res://assets/freesound-community-ball-bounce-94853_fr7Rxbqp.mp3" id="6_gee14"]
 [ext_resource type="Script" uid="uid://qqv7dovcos73" path="res://scenes/player.gd" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://c28aa65a4sfcr" path="res://assets/ARROWLEFT.png" id="9_vtaks"]
+[ext_resource type="Texture2D" uid="uid://d3f0p4feeneu1" path="res://assets/ARROWRIGHT.png" id="10_kvpfn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p57ef"]
 
@@ -21,6 +24,50 @@ size = Vector2(19, 647)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
 size = Vector2(1158, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("9_vtaks")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("9_vtaks")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trtic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvuet")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("10_kvpfn")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("10_kvpfn")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rysoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir15t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca42v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D" unique_id=972893879]
 script = ExtResource("1_uwrxv")
@@ -47,18 +94,21 @@ scale = Vector2(0.59999996, 0.6000001)
 texture = ExtResource("4_lbhrr")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1476932895]
-position = Vector2(417, 32)
+position = Vector2(417, 59.515)
 script = ExtResource("4_p57ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1697829392]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_p57ef")
 
-[node name="Ball" type="Sprite2D" parent="RigidBody2D" unique_id=1778847594]
-texture_filter = 1
-position = Vector2(-7.644296e-06, 5.9604645e-07)
-scale = Vector2(2.3666656, 2.433333)
-texture = ExtResource("4_iywne")
+[node name="NewProject" type="Sprite2D" parent="RigidBody2D" unique_id=1921592661]
+position = Vector2(-4.53125, -4.3899965)
+scale = Vector2(0.1390291, 0.13916877)
+texture = ExtResource("5_u5sy4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RigidBody2D" unique_id=111597387]
+stream = ExtResource("6_gee14")
+volume_db = 8.125
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1141015309]
 position = Vector2(598.43, 581.525)
@@ -99,5 +149,21 @@ position = Vector2(575, 646)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=552641730]
 shape = SubResource("RectangleShape2D_0tnpc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1870079127]
+texture_filter = 1
+position = Vector2(937.00006, 564)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_trtic")
+autoplay = "default"
+frame_progress = 0.8109576
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1679226836]
+texture_filter = 1
+position = Vector2(990, 564)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_rysoc")
+autoplay = "default"
+frame_progress = 0.7660061
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -10,6 +10,14 @@ func _ready() -> void:
 	add_to_group("platform")
 	$Area2D.body_entered.connect(_on_bounce_zone_body_entered)
 
+	# Derive the real half-width from the collision shape + this node's scale,
+	# instead of a hardcoded guess that doesn't match the scaled sprite.
+	var shape: RectangleShape2D = $CollisionShape2D.shape
+	half_width = (shape.size.x * scale.x) / 2.0
+
+	# Use the actual viewport width instead of a hardcoded 800.
+	screen_width = get_viewport_rect().size.x
+
 
 func _physics_process(delta: float) -> void:
 	var dir := 0.0
