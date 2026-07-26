@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://ds86yq1qwv36j"]
+
+[ext_resource type="Script" uid="uid://bb0cpdu0rrs4" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://bkroctl6khv0x" path="res://assets/Metal Lord.otf" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://cjir70kojg7y1" path="res://assets/ball.png" id="4_iywne"]
+[ext_resource type="Texture2D" uid="uid://dqpltkxhmt11h" path="res://assets/background.webp" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://c2w0inotejpmi" path="res://scenes/ball.gd" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bu4bap5jwl74g" path="res://assets/Sprite-0001.png" id="5_iywne"]
+[ext_resource type="Script" uid="uid://qqv7dovcos73" path="res://scenes/player.gd" id="6_u5sy4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p57ef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
+size = Vector2(95.63385, 23.972656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5sy4"]
+size = Vector2(95.49301, 23.835617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(19, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(1158, 20)
+
+[node name="Game" type="Node2D" unique_id=972893879]
+script = ExtResource("1_uwrxv")
+
+[node name="Timer" type="Timer" parent="." unique_id=369572337]
+wait_time = 60.0
+one_shot = true
+
+[node name="TimerLabel" type="Label" parent="." unique_id=79276889]
+texture_filter = 1
+offset_left = 106.0
+offset_top = 59.0
+offset_right = 193.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("2_lnu2h")
+theme_override_font_sizes/font_size = 48
+text = "60"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=455803316]
+z_index = -50
+texture_filter = 1
+position = Vector2(576.00006, 325)
+scale = Vector2(0.59999996, 0.6000001)
+texture = ExtResource("4_lbhrr")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1476932895]
+position = Vector2(417, 32)
+script = ExtResource("4_p57ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1697829392]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_p57ef")
+
+[node name="Ball" type="Sprite2D" parent="RigidBody2D" unique_id=1778847594]
+texture_filter = 1
+position = Vector2(-7.644296e-06, 5.9604645e-07)
+scale = Vector2(2.3666656, 2.433333)
+texture = ExtResource("4_iywne")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1141015309]
+position = Vector2(417, 32)
+scale = Vector2(2.3666656, 2.433333)
+script = ExtResource("6_u5sy4")
+
+[node name="Sprite0001" type="Sprite2D" parent="StaticBody2D" unique_id=1821185921]
+texture_filter = 1
+position = Vector2(58.73242, 202.60277)
+scale = Vector2(1, 0.9999998)
+texture = ExtResource("5_iywne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=237570677]
+position = Vector2(58.662018, 202.53424)
+scale = Vector2(1, 0.99999976)
+shape = SubResource("RectangleShape2D_p57ef")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" unique_id=1657297750]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D" unique_id=1120569886]
+position = Vector2(58.73242, 202.60277)
+scale = Vector2(1, 0.99999976)
+shape = SubResource("RectangleShape2D_u5sy4")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=777086811]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=69060349]
+position = Vector2(1.5, 317)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=716048553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=390408025]
+position = Vector2(1150, 324.5)
+shape = SubResource("RectangleShape2D_gee14")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=11744242]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=552641730]
+position = Vector2(575, 646)
+shape = SubResource("RectangleShape2D_0tnpc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
