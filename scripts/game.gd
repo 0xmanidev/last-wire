@@ -5,7 +5,7 @@ var ball_start_pos: Vector2
 
 func _ready() -> void:
 	ball_start_pos = $RigidBody2D.global_position
-	$StaticBody2D/Area2D.body_entered.connect(_on_floor_body_entered)
+	$Area2D.body_entered.connect(_on_floor_body_entered)
 	$Timer.timeout.connect(_on_timer_timeout)
 	$RigidBody2D.reset_ball(ball_start_pos)
 	$Timer.start(60.0)
